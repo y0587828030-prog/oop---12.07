@@ -140,83 +140,117 @@
 # order.item_count()
 # order.print_order()
 
-##step 9
-class Barista:
-    def __init__(self, name, specialty ):
-        self.name = name 
-        self.specialty = specialty
-        self.drinks_made = 0
+# ##step 9
+# class Barista:
+#     def __init__(self, name, specialty ):
+#         self.name = name 
+#         self.specialty = specialty
+#         self.drinks_made = 0
 
-    def make_drink(self, drink_name):
-        print(f"{self.name} made a {drink_name} ")
-        self.drinks_made += 1
+#     def make_drink(self, drink_name):
+#         print(f"{self.name} made a {drink_name} ")
+#         self.drinks_made += 1
 
-    def is_specialty(self, drink_name):
-        return self.is_specialty == drink_name
-        # self.drink = drink_name
-        # if drink_name == self.specialty:
-        #     return True
-        # else:
-        #     return False
+#     def is_specialty(self, drink_name):
+#         return self.is_specialty == drink_name
+#         # self.drink = drink_name
+#         # if drink_name == self.specialty:
+#         #     return True
+#         # else:
+#         #     return False
 
-    def shift_summary(self):
-        print(f"{self.name} made {self.drinks_made} drinks today. ")
+#     def shift_summary(self):
+#         print(f"{self.name} made {self.drinks_made} drinks today. ")
 
-waiter=Barista("Yossi", "Espresso")
-waiter.make_drink("cappuccino")
-waiter.make_drink("espresso")
-waiter.make_drink("americano")
-waiter.make_drink("coffe")
-
-
-print(waiter.is_specialty("Espresso"))
-
-waiter.shift_summary()
+# waiter=Barista("Yossi", "Espresso")
+# waiter.make_drink("cappuccino")
+# waiter.make_drink("espresso")
+# waiter.make_drink("americano")
+# waiter.make_drink("coffe")
 
 
+# print(waiter.is_specialty("Espresso"))
 
-
-##step 10
-class Receipt:
-    def __init__(self, tax_rate):
-        self.tax = tax_rate
-        self.items = []
-
-    def add_item(self, name, price):
-        self.items.append((name,price))
-
-    def subtotal(self):
-        total_sum = 0
-        for item in self.items:
-            total_sum += item[1]
-        return total_sum
-
-    def tax_amount(self):
-        total = self.subtotal()
-        tax_total = total * self.tax
-        return tax_total
-
-    def total(self):
-        return self.subtotal() * 100/100 + self.tax_amount()
-
-    def print_receipt(self): 
-        for item in self.items:
-            name = item[0]
-            price = item[1]
-        print(f"- {name} ${price}")
-
-        print(f"Subtotal: ${self.subtotal()}")
-        print(f"tax ({int(self.tax * 100)}%)  ${self.tax_amount()}")
-        print(f"Total: ${self.total()}")
-
-receipt = Receipt(0.17)
-receipt.add_item("Latte", 4.5)
-receipt.add_item("Croissant", 2.0)
-receipt.add_item("Water", 1.5)
-
-receipt.print_receipt()
+# waiter.shift_summary()
 
 
 
+
+# ##step 10
+# class Receipt:
+#     def __init__(self, tax_rate):
+#         self.tax = tax_rate
+#         self.items = []
+
+#     def add_item(self, name, price):
+#         self.items.append((name,price))
+
+#     def subtotal(self):
+#         total_sum = 0
+#         for item in self.items:
+#             total_sum += item[1]
+#         return total_sum
+
+#     def tax_amount(self):
+#         total = self.subtotal()
+#         tax_total = total * self.tax
+#         return tax_total
+
+#     def total(self):
+#         return self.subtotal() * 100/100 + self.tax_amount()
+
+#     def print_receipt(self): 
+#         for item in self.items:
+#             name = item[0]
+#             price = item[1]
+#         print(f"- {name} ${price}")
+
+#         print(f"Subtotal: ${self.subtotal()}")
+#         print(f"tax ({int(self.tax * 100)}%)  ${self.tax_amount()}")
+#         print(f"Total: ${self.total()}")
+
+# receipt = Receipt(0.17)
+# receipt.add_item("Latte", 4.5)
+# receipt.add_item("Croissant", 2.0)
+# receipt.add_item("Water", 1.5)
+
+# receipt.print_receipt()
+
+
+
+###Extra Exercises
+
+# Extra 1. Category Filtering
+class MenuItem:
+    def __init__(self, name, price, category ):
+        self.name = name
+        self.price = price 
+        self.category = category
+
+    def is_drink(self): 
+        return "drink" in self.category
+
+    def is_cheap(self, limit):
+        return self.price < limit
+
+item1=MenuItem("Espresso", 3.5, "hot drink") 
+print(item1.is_drink())
+print(item1.is_cheap(3.0)) 
+
+item2=MenuItem("Muffin", 2.0, "food")
+print(item1.is_drink())
+print(item1.is_cheap(3.0))
+
+item3=MenuItem("coffe", 2.5, "hot drink")
+print(item1.is_drink())
+print(item1.is_cheap(3.0))
+
+item4=MenuItem("sandwich", 5.0, "food")
+print(item1.is_drink())
+print(item1.is_cheap(3.0))
+
+
+
+        
 
 
