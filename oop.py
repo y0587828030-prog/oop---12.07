@@ -122,20 +122,59 @@
 # invitation.order()
 # invitation.order()
 
-##step 8
-class Order:
-    def __init__(self, customer_name, items):
-        self.customer = customer_name
-        self.items = items
+# ##step 8
+# class Order:
+#     def __init__(self, customer_name, items):
+#         self.customer = customer_name
+#         self.items = items
 
-    def item_count(self):
-        print(f"items: {len(self.items)}")
+#     def item_count(self):
+#         print(f"items: {len(self.items)}")
 
-    def print_order(self):
-        print(f"Order for: {self.customer} ")
-        for self.item in self.items:
-            print(f"- {self.item}")
+#     def print_order(self):
+#         print(f"Order for: {self.customer} ")
+#         for self.item in self.items:
+#             print(f"- {self.item}")
 
-order = Order("Dana", ["Latte", "Croissant", "OJ"])
-order.item_count()
-order.print_order()
+# order = Order("Dana", ["Latte", "Croissant", "OJ"])
+# order.item_count()
+# order.print_order()
+
+##step 9
+class Barista:
+    def __init__(self, name, specialty ):
+        self.name = name 
+        self.specialty = specialty
+        self.drinks_made = 0
+
+    def make_drink(self, drink_name):
+        print(f"{self.name} made a {drink_name} ")
+        self.drinks_made += 1
+
+    def is_specialty(self, drink_name):
+        return self.is_specialty == drink_name
+        # self.drink = drink_name
+        # if drink_name == self.specialty:
+        #     return True
+        # else:
+        #     return False
+
+    def shift_summary(self):
+        print(f"{self.name} made {self.drinks_made} drinks today. ")
+
+waiter=Barista("Yossi", "Espresso")
+waiter.make_drink("cappuccino")
+waiter.make_drink("espresso")
+waiter.make_drink("americano")
+waiter.make_drink("coffe")
+
+
+print(waiter.is_specialty("Espresso"))
+
+waiter.shift_summary()
+
+
+
+
+
+        
