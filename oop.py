@@ -86,12 +86,24 @@ clint2.status()
 clint2.sell() 
 clint2.status()     
 clint2.restock()
-clint2.status()     
+clint2.status() 
 
+##step 6
+class CoffeeShop:
+    def __init__(self, name, city, capacity):
+        self.name = name 
+        self.city = city
+        self.capacity = int(capacity)
 
+    def open_shop(self):
+            print(f"{self.name}is now open in {self.city}! Capacity: {self.capacity} seats")
+
+    def close_shop(self):
+         print(f"{self.name} is now closed. See you tomorrow!") 
 
         
-
-    
+client = CoffeeShop("Brew House", "Tel Aviv", 40)
+client.open_shop()
+client.close_shop()   
 
         
