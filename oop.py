@@ -13,6 +13,8 @@ print(m1.__dict__)
 m1.describe()
 
 
+
+
 ## step 2
 class Customer:
     def __init__(self, name, favorit_drink):
@@ -24,4 +26,22 @@ class Customer:
 
 coustimr1 =  Customer("alice","latte" )
 coustimr1.greet()
+
+## step 3
+class MenuItem:
+    def __init__(self, name, price):
+        self.name = name 
+        self.price = price
+
+    def describe(self):
+        print(f"item: {self.name} | price:  ${self.price}")
+
+cousumer1 = MenuItem("latte", 4.5)
+cousumer2 = MenuItem("Croissant", 2.0)
+cousumer3 = MenuItem("Cold Brew", 5.0)
+
+cousumer1.describe()
+cousumer2.describe()
+cousumer3.describe()
+
         
