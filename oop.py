@@ -104,6 +104,20 @@ class CoffeeShop:
         
 client = CoffeeShop("Brew House", "Tel Aviv", 40)
 client.open_shop()
-client.close_shop()   
+client.close_shop() 
 
-        
+##step 7
+class MenuItem:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        self.order_count = 0
+
+    def order(self):
+        self.order_count += 1
+        print(f"{self.name} ordered. Total orders: {self.order_count}")
+
+invitation =MenuItem("Cappuccino", 4.0)
+invitation.order()
+invitation.order()
+invitation.order()
