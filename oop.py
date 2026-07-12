@@ -176,5 +176,47 @@ waiter.shift_summary()
 
 
 
+##step 10
+class Receipt:
+    def __init__(self, tax_rate):
+        self.tax = tax_rate
+        self.items = []
 
-        
+    def add_item(self, name, price):
+        self.items.append((name,price))
+
+    def subtotal(self):
+        total_sum = 0
+        for item in self.items:
+            total_sum += item[1]
+        return total_sum
+
+    def tax_amount(self):
+        total = self.subtotal()
+        tax_total = total * self.tax
+        return tax_total
+
+    def total(self):
+        return self.subtotal() * 100/100 + self.tax_amount()
+
+    def print_receipt(self): 
+        for item in self.items:
+            name = item[0]
+            price = item[1]
+        print(f"- {name} ${price}")
+
+        print(f"Subtotal: ${self.subtotal()}")
+        print(f"tax ({int(self.tax * 100)}%)  ${self.tax_amount()}")
+        print(f"Total: ${self.total()}")
+
+receipt = Receipt(0.17)
+receipt.add_item("Latte", 4.5)
+receipt.add_item("Croissant", 2.0)
+receipt.add_item("Water", 1.5)
+
+receipt.print_receipt()
+
+
+
+
+
