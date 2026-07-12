@@ -220,37 +220,79 @@
 
 ###Extra Exercises
 
-# Extra 1. Category Filtering
-class MenuItem:
-    def __init__(self, name, price, category ):
+# # Extra 1. Category Filtering
+# class MenuItem:
+#     def __init__(self, name, price, category ):
+#         self.name = name
+#         self.price = price 
+#         self.category = category
+
+#     def is_drink(self): 
+#         return "drink" in self.category
+
+#     def is_cheap(self, limit):
+#         return self.price < limit
+
+# item1=MenuItem("Espresso", 3.5, "hot drink") 
+# print(item1.is_drink())
+# print(item1.is_cheap(3.0)) 
+
+# item2=MenuItem("Muffin", 2.0, "food")
+# print(item1.is_drink())
+# print(item1.is_cheap(3.0))
+
+# item3=MenuItem("coffe", 2.5, "hot drink")
+# print(item1.is_drink())
+# print(item1.is_cheap(3.0))
+
+# item4=MenuItem("sandwich", 5.0, "food")
+# print(item1.is_drink())
+# print(item1.is_cheap(3.0))
+
+
+## Extra 2. Loyalty Points
+class Customer:
+    def __init__(self, name, balance):
         self.name = name
-        self.price = price 
-        self.category = category
+        self.balance = balance
+        self.points = 0
 
-    def is_drink(self): 
-        return "drink" in self.category
+    def purchase(self, item_name, price):
+        if self.balance >= price:
+            self.balance -= price
+            self.points += 10
+            print(f"{item_name} for ${price}")
+        else:
+            print(f"Not enough balance for {item_name}")
 
-    def is_cheap(self, limit):
-        return self.price < limit
+    def redeem(self):
+        if self.points >= 50:
+            self.balance += 5
+            self.points = 0
 
-item1=MenuItem("Espresso", 3.5, "hot drink") 
-print(item1.is_drink())
-print(item1.is_cheap(3.0)) 
+    def status(self):
+        print(f"Name: {self.name} | Balance: ${self.balance} | Points: {self.points}")
 
-item2=MenuItem("Muffin", 2.0, "food")
-print(item1.is_drink())
-print(item1.is_cheap(3.0))
+claint = Customer("Noa", 15.0)
+claint.status()
 
-item3=MenuItem("coffe", 2.5, "hot drink")
-print(item1.is_drink())
-print(item1.is_cheap(3.0))
+claint.purchase("Coffee", 3)
+claint.purchase("ice coffee", 3)
+claint.purchase("sandwich", 3)
+claint.purchase("water", 3)
+claint.purchase("Espresso", 3)
+claint.redeem()
 
-item4=MenuItem("sandwich", 5.0, "food")
-print(item1.is_drink())
-print(item1.is_cheap(3.0))
+claint.purchase("Muffin", 3)
+
+claint.purchase("cooke", 3.5)
+
+claint.redeem()
+claint.status()
 
 
 
-        
+
+
 
 
