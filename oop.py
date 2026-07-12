@@ -42,24 +42,55 @@
 
 # cousumer1.describe()
 # cousumer2.describe()
-# cousumer3.describe()
+# # cousumer3.describe()
 
-##step 4
+# ##step 4
 
-class Customer:
-    def __init__(self, name, balance):
-        self.name = name 
-        self.balance = balance
+# class Customer:
+#     def __init__(self, name, balance):
+#         self.name = name 
+#         self.balance = balance
 
-    def can_afford(self,price):
-        if price <= self.balance:
-            return True
+#     def can_afford(self,price):
+#         if price <= self.balance:
+#             return True
+#         else:
+#             return False
+
+# clint1 = Customer("Bob", 10.0)
+# print(clint1.can_afford(8.0))
+# print(clint1.can_afford(12.0))
+
+##step 5
+
+class MenuItem:
+    def __init__(self, name, price, in_stock):
+        self.name = name
+        self.price = price
+        self.in_stock = in_stock
+
+    def sell(self):
+        self.in_stock = False
+
+    def restock(self):
+        self.in_stock = True
+
+    def status(self): 
+        if self.in_stock:
+           print(f"{self.name} is in stock.") 
         else:
-            return False
+             print(f"{self.name} is sold out  ")
 
-clint1 = Customer("Bob", 10.0)
-print(clint1.can_afford(8.0))
-print(clint1.can_afford(12.0))
+clint2 = MenuItem("Muffin", 2.5, True)
+clint2.status()    
+clint2.sell() 
+clint2.status()     
+clint2.restock()
+clint2.status()     
+
+
+
+        
 
     
 
