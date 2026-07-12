@@ -250,49 +250,85 @@
 # print(item1.is_cheap(3.0))
 
 
-## Extra 2. Loyalty Points
-class Customer:
-    def __init__(self, name, balance):
-        self.name = name
-        self.balance = balance
-        self.points = 0
+# ## Extra 2. Loyalty Points
+# class Customer:
+#     def __init__(self, name, balance):
+#         self.name = name
+#         self.balance = balance
+#         self.points = 0
 
-    def purchase(self, item_name, price):
-        if self.balance >= price:
-            self.balance -= price
-            self.points += 10
-            print(f"{item_name} for ${price}")
-        else:
-            print(f"Not enough balance for {item_name}")
+#     def purchase(self, item_name, price):
+#         if self.balance >= price:
+#             self.balance -= price
+#             self.points += 10
+#             print(f"{item_name} for ${price}")
+#         else:
+#             print(f"Not enough balance for {item_name}")
+     
+#     def redeem(self):
+#         if self.points >= 50:
+#             self.balance += 5
+#             self.points = 0
 
-    def redeem(self):
-        if self.points >= 50:
-            self.balance += 5
-            self.points = 0
+#     def status(self):
+#         print(f"Name: {self.name} | Balance: ${self.balance} | Points: {self.points}")
 
-    def status(self):
-        print(f"Name: {self.name} | Balance: ${self.balance} | Points: {self.points}")
+# claint = Customer("Noa", 15.0)
+# claint.status()
 
-claint = Customer("Noa", 15.0)
-claint.status()
+# claint.purchase("Coffee", 3)
+# claint.status()
 
-claint.purchase("Coffee", 3)
-claint.purchase("ice coffee", 3)
-claint.purchase("sandwich", 3)
-claint.purchase("water", 3)
-claint.purchase("Espresso", 3)
-claint.redeem()
+# claint.purchase("ice coffee", 3)
+# claint.purchase("sandwich", 3)
+# claint.purchase("water", 3)
+# claint.purchase("Espresso", 3)
+# claint.redeem()
 
-claint.purchase("Muffin", 3)
+# claint.purchase("Muffin", 3)
 
-claint.purchase("cooke", 3.5)
+# claint.purchase("cooke", 3.5)
 
-claint.redeem()
-claint.status()
+# claint.redeem()
+# claint.status()
 
+## Extra 3. Timed Order
+class Order:
+    def __init__(self,customer_name, items):
+        self.customer = customer_name
+        self.items = items
 
+    def total_prep_time(self):
+        total = 0
+        for item in self.items:
+            total += item[1]
+        return total
+        
 
+    def ready_by(self, minutes):
+        return self.total_prep_time() <= minutes
 
+    def print_order(self):
+        print(f"Order for {self.customer_name}:")
+        for item in self.items:
+            print(f"- {item[0]}: {item[1]} min")
 
+    def slowest_item(self):
+        if not self.items:
+            return None
+        
+        slowest = self.items[0]
+        
+        for item in self.items:
+            if item[1] > slowest[1]:
+                slowest = item
+                
+        return slowest[0]
+
+my_order = Order("Moshe", [("Latte", 3), ("Sandwich", 7), ("Smoothie", 5)])
+
+print(my_order.ready_by(10))
+print(my_order.ready_by(20))
+print(my_order.slowest_item())
 
 
