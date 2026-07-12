@@ -61,63 +61,81 @@
 # print(clint1.can_afford(8.0))
 # print(clint1.can_afford(12.0))
 
-##step 5
+# ##step 5
 
-class MenuItem:
-    def __init__(self, name, price, in_stock):
-        self.name = name
-        self.price = price
-        self.in_stock = in_stock
+# class MenuItem:
+#     def __init__(self, name, price, in_stock):
+#         self.name = name
+#         self.price = price
+#         self.in_stock = in_stock
 
-    def sell(self):
-        self.in_stock = False
+#     def sell(self):
+#         self.in_stock = False
 
-    def restock(self):
-        self.in_stock = True
+#     def restock(self):
+#         self.in_stock = True
 
-    def status(self): 
-        if self.in_stock:
-           print(f"{self.name} is in stock.") 
-        else:
-             print(f"{self.name} is sold out  ")
+#     def status(self): 
+#         if self.in_stock:
+#            print(f"{self.name} is in stock.") 
+#         else:
+#              print(f"{self.name} is sold out  ")
 
-clint2 = MenuItem("Muffin", 2.5, True)
-clint2.status()    
-clint2.sell() 
-clint2.status()     
-clint2.restock()
-clint2.status() 
+# clint2 = MenuItem("Muffin", 2.5, True)
+# clint2.status()    
+# clint2.sell() 
+# clint2.status()     
+# clint2.restock()
+# clint2.status() 
 
-##step 6
-class CoffeeShop:
-    def __init__(self, name, city, capacity):
-        self.name = name 
-        self.city = city
-        self.capacity = int(capacity)
+# ##step 6
+# class CoffeeShop:
+#     def __init__(self, name, city, capacity):
+#         self.name = name 
+#         self.city = city
+#         self.capacity = int(capacity)
 
-    def open_shop(self):
-            print(f"{self.name}is now open in {self.city}! Capacity: {self.capacity} seats")
+#     def open_shop(self):
+#             print(f"{self.name}is now open in {self.city}! Capacity: {self.capacity} seats")
 
-    def close_shop(self):
-         print(f"{self.name} is now closed. See you tomorrow!") 
+#     def close_shop(self):
+#          print(f"{self.name} is now closed. See you tomorrow!") 
 
         
-client = CoffeeShop("Brew House", "Tel Aviv", 40)
-client.open_shop()
-client.close_shop() 
+# client = CoffeeShop("Brew House", "Tel Aviv", 40)
+# client.open_shop()
+# client.close_shop() 
 
-##step 7
-class MenuItem:
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
-        self.order_count = 0
+# ##step 7
+# class MenuItem:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+#         self.order_count = 0
 
-    def order(self):
-        self.order_count += 1
-        print(f"{self.name} ordered. Total orders: {self.order_count}")
+#     def order(self):
+#         self.order_count += 1
+#         print(f"{self.name} ordered. Total orders: {self.order_count}")
 
-invitation =MenuItem("Cappuccino", 4.0)
-invitation.order()
-invitation.order()
-invitation.order()
+# invitation =MenuItem("Cappuccino", 4.0)
+# invitation.order()
+# invitation.order()
+# invitation.order()
+
+##step 8
+class Order:
+    def __init__(self, customer_name, items):
+        self.customer = customer_name
+        self.items = items
+
+    def item_count(self):
+        print(f"items: {len(self.items)}")
+
+    def print_order(self):
+        print(f"Order for: {self.customer} ")
+        for self.item in self.items:
+            print(f"- {self.item}")
+
+order = Order("Dana", ["Latte", "Croissant", "OJ"])
+order.item_count()
+order.print_order()
